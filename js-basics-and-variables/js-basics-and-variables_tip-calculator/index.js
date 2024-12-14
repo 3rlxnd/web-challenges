@@ -26,15 +26,6 @@ const totalCost = ((mealCost, tip) => {
    return parseFloat(totalCost.toFixed(2));
 });
 
-// Function
-
-function totalCostFunction(mealCost, tip) {
-   let tipAmount = mealCost * tip / 100;
-   let totalCost = tipAmount + mealCost;
-
-   return parseFloat(totalCost.toFixed(2));
-};
-
 // Menu
 
 class Meal {
@@ -42,12 +33,12 @@ class Meal {
       this.name = name;
       this.price = price;
       this.tip = price * tipPercent / 100;
-      this.total = totalCost(price, tipPercent);
+      this.total = totalCost(price, this.tip);
    }
-}
+};
 
 let menu = [];
-let tipPercent = 10;
+let tipPercent = 20;
 
 menu.push(new Meal("Soup", 8.90));
 menu.push(new Meal("Pasta", 15.90));
@@ -57,4 +48,4 @@ menu.push(new Meal("Teramisu", 5.90));
 menu.push(new Meal("Red Wine", 7.90));
 menu.push(new Meal("Water", 3.50));
 
-console.table(menu)
+console.table(menu);
