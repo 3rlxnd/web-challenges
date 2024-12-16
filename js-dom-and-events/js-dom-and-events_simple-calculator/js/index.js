@@ -78,5 +78,33 @@ Step 2: Add event listeners to update `operand1` based on the button clicked. Lo
 */
 
 // --v-- write your code here --v--
+increaseOneButton.addEventListener("click", () => {
+    operand1 ++
+    console.log(operand1)
+})
 
+increaseFiveButton.addEventListener("click", () => {
+    operand1 += 5
+    console.log(operand1)
+})
+
+decreaseOneButton.addEventListener("click", () => {
+    operand1 --
+    console.log(operand1)
+})
+
+decreaseFiveButton.addEventListener("click", () => {
+    operand1 -= 5
+    console.log(operand1)
+})
+
+multiplyTwoButton.addEventListener("click", () => {
+    operand1 *= 2
+    console.log(operand1)
+})
+
+divideTwoButton.addEventListener("click", () => {
+    operand1 /= 2
+    console.log(operand1)
+})
 // --^-- write your code here --^--
