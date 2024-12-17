@@ -9,6 +9,10 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+const title = "Nineteen Eighty-Four";
+const author = "George Orwell";
+let rating = 5;
+let sales = 25604072;
 
 // --^-- write your code here --^--
 
@@ -27,6 +31,11 @@ Then:
 */
 
 // --v-- write your code here --v--
+logBookData()
+
+rating -= 1
+sales += 28374;
+
 
 // --^-- write your code here --^--
 
@@ -40,5 +49,17 @@ Then:
 */
 
 // --v-- write your code here --v--
+function logBookData() {
+    console.log("Title:", title);
+    console.log("Author:", author);
+    console.log("Rating:", rating);
+    console.log("Sales:", sales);    
+}
+
+sales += 26846474;
+sales += 368
+
+logBookData();
+
 
 // --^-- write your code here --^--
