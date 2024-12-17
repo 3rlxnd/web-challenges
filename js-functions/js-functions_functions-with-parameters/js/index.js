@@ -7,10 +7,10 @@ console.log("Exercise 1:");
 */
 
 // Uncomment the next line of code and figure out why it does not work:
-// logText;
+logText();
 
 function logText() {
-  console.log("This text does not appear. Why?");
+    console.log("This text does not appear. Why?");
 }
 
 console.log("-------------");
@@ -20,25 +20,15 @@ console.log("Exercise 2:");
    Replace the function calls below with your new function.
 */
 
-function greetBob() {
-  console.log("Welcome Bob, good to see you again!");
-}
-
-function greetAlice() {
-  console.log("Welcome Alice, good to see you again!");
-}
-
-function greetMary() {
-  console.log("Welcome Mary, good to see you again!");
-}
-
-greetAlice();
-greetBob();
-greetMary();
+greet("Alice");
+greet("Bob");
+greet("Mary");
 
 // --v-- write your code here --v--
 
-function greet() {}
+function greet(name) {
+    console.log(`Welcome ${name}, good to see you again!`);
+}
 
 // --^-- write your code here --^--
 
@@ -52,5 +42,8 @@ Note: Separation text refers to the text that is logged in the console before ea
 */
 
 // --v-- write your code here --v--
-
+logSeperator = (index) => {
+    console.log("-------------");
+    console.log(`Exercise ${index}:`);
+}
 // --^-- write your code here --^--
