@@ -27,6 +27,9 @@ let post = {
 
 // --v-- write your code here --v--
 
+post.likes ++;
+
 console.log(post)
+console.log(post.likes)
 
 // --^-- write your code here --^--
