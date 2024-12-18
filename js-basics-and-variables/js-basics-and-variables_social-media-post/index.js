@@ -11,6 +11,14 @@ console.clear();
 
 // --v-- write your code here --v--
 
+let post = { 
+	title: "My First Post",
+	text: "Have a beautiful day!",
+	likes: 0,
+	author: "User",
+	isReported: false 
+}
+
 // --^-- write your code here --^--
 
 /*
@@ -18,5 +26,7 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+
+console.log(post)
 
 // --^-- write your code here --^--
