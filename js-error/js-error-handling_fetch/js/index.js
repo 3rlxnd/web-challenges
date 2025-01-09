@@ -4,22 +4,15 @@ const actionsElement = document.querySelector("[data-js='actions']");
 const userElement = document.querySelector("[data-js='user']");
 const errorElement = document.querySelector("[data-js='error']");
 
-function isValidJSON(data) {
-  try {
-      JSON.parse(data);
-      return true;
-  } catch (error) {
-      return false;
-  }
-}
-
 async function fetchUserData(url) {
   const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    } else if (!isValidJSON(response)) {
-      throw new Error(`Invalid API Link! Status: ${response.status}`);
-    } else return await response.json()
+  const contentType = response.headers.get("content-type");
+
+  if (!response.ok) {
+    throw new Error(`HTTP error!` ,{ cause: response.status });
+  } else if (!contentType.includes('application/json')) {
+    throw new Error(`Invalid API Link!`, { cause: response.status });
+  } else return await response.json()
 }
 
 
@@ -38,7 +31,7 @@ endpoints.forEach((endpoint) => {
   button.addEventListener("click", async () => {
     try {
       let result = await fetchUserData(endpoint.url);
-  
+
       const user = result.data;
       console.log(user)
       userElement.innerHTML = `
@@ -47,10 +40,8 @@ endpoints.forEach((endpoint) => {
       `;
       errorElement.textContent = "";
     } catch (error) {
-      console.log(error.message)
-      errorElement.textContent = `Error: ${error.message}`;
+      errorElement.textContent = `Error: ${error.message} Status: ${error.cause}`;
       userElement.innerHTML = "No user data available.";
     }
   });
-  
 });
