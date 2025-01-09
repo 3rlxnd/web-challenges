@@ -27,18 +27,17 @@ endpoints.forEach((endpoint) => {
   actionsElement.append(button);
 
   button.addEventListener("click", async () => {
-    const result = await fetchUserData(endpoint.url);
-
-    if (result.error) {
-      errorElement.textContent = result.error;
-      userElement.innerHTML = "No user data available.";
-    } else {
+    try {
+      let result = await fetchUserData(endpoint.url);
       const user = result.data;
       userElement.innerHTML = `
       <img alt="${user.first_name} ${user.last_name}" src="${user.avatar}" class="user__image"/>
       <h2>${user.first_name} ${user.last_name}</h2>
       `;
       errorElement.textContent = "";
+    } catch (error) {
+      errorElement.textContent = error;
+      userElement.innerHTML = "No user data available.";
     }
-  });
+  })
 });
