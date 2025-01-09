@@ -9,10 +9,10 @@ queryInput.addEventListener("input", (event) => {
 
   const searchString = event.target.value;
 
-  const foundCountry = null;
+  const foundCountries = countries.filter((country) => country.name.toLowerCase().includes(searchString.toLowerCase()));
 
-  if (foundCountry) {
-    const countryElement = Country(foundCountry);
+  foundCountries.map((card) => {
+    const countryElement = Country(card);
     container.append(countryElement);
-  }
+  })
 });
