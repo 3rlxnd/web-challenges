@@ -2,6 +2,7 @@ console.clear();
 
 const form = document.querySelector("form");
 const output = form.querySelector("output");
+const errorMessage = document.querySelector(".error");
 
 const operations = {
   add: (a, b) => a + b,
@@ -9,9 +10,9 @@ const operations = {
   multiply: (a, b) => a * b,
   divide: (a, b) => {
     try {
-      return a / b
+      b == 0 ? error : a / b
     } catch (error) {
-      throw new Error("Cannot divide by zero!");
+      errorMessage.innerHTML = "Cannot divide by zero!"
     }
   },
 };
