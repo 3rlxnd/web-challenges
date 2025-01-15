@@ -1,3 +1,7 @@
 export default function App() {
-  return <h1>Replace me with your component!</h1>;
+  return <Sum valueA={5} valueB={8}/>;
+}
+
+function Sum(props) {
+return <p>{props.valueA} + {props.valueB} = {props.valueA + props.valueB}</p>
 }
