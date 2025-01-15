@@ -3,5 +3,7 @@ export default function App() {
 }
 
 function Greeting(props) {
-  return <h1>Hello, {props.name}</h1>
+  return <h1>Hello, {coaches.includes(props.name) ? "Coach" : props.name}</h1>
 }
+
+const coaches = ["Gimena", "Klaus"]
