@@ -8,7 +8,7 @@ export default function App() {
   const validCode = "🐡🐠🐋";
 
   function handleClick(emoji) {
-    setCode(code += emoji)
+    setCode(code + emoji)
     console.log(code)
   }
 
