@@ -11,7 +11,7 @@ export default function App() {
         <button
           type="button"
           onClick={() => {
-            setCount(count -= 1)
+            setCount(count - 1)
           }}
         >
           -
@@ -19,7 +19,7 @@ export default function App() {
         <button
           type="button"
           onClick={() => {
-            setCount(count += 1)
+            setCount(count + 1)
           }}
         >
           +
