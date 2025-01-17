@@ -1,15 +1,25 @@
 // Find the maximum
 function maxOfTwoNumbers(num1, num2) {
-  // TODO:  
+  if (num1 > num2) {
+    return num1
+  } else {
+    return num2
+  }
 }
-
 
 // Find the longest word
 
 const words = ["Jaws", "Up", "Alien", "Gravity", "Inception", "Psycho",];
 
 function findLongestWord(words) {
-  // TODO:  
+  if (words.length === 0) return null;
+
+  let longest = ''
+  words.forEach(word => {
+    word.length > longest.length ? longest = word : null
+  });
+
+  return longest
 }
 
 // Calculate the sum
@@ -17,8 +27,10 @@ function findLongestWord(words) {
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
-  // TODO:  
+  const sum = numbers.reduce((sum, number) => sum + number, 0);
+  return sum
 }
+
 
 // Calculate the average length of the words 
 
@@ -36,8 +48,13 @@ const words2 = [
 ];
 
 function averageWordLength(words) {
-  // TODO:
+  if (words.length === 0) return null;
+
+  const sum = words.reduce((sum, word) => sum + word.length, 0);
+  return sum / words.length
 }
+
+// sum length of each word 
 
 // Unique arrays - return an array without duplicates
 
@@ -56,14 +73,16 @@ const words3 = [
 ];
 
 function uniquifyArray(words) {
-  // TODO:
+  let newArray = []
+  words.map((word) => newArray.includes(word) ? null : newArray.push(word))
+  return newArray
 }
 
 // Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
 function doesWordExist(haystack, needle) {
-  // TODO:
+  return haystack.includes(needle)
 }
 
 // Count repetition
@@ -83,7 +102,7 @@ const wordsCount = [
 ];
 
 function howManyTimes(haystack, needle) {
-  // TODO:
+  return haystack.filter((array) => array.includes(needle)).length
 }
 
 // Bonus: A generic sum function
@@ -102,7 +121,16 @@ const mixedArray = [
 ];
 
 function sum(array) {
-  // TODO:
+  return array.reduce((acc, item) => {
+    if (typeof item === "string") {
+      return acc + item.length
+    } else if (typeof item === "boolean") {
+      return acc + (item ? 1 : 0)
+    } else if (typeof item === "number") {
+      return acc + item
+    }
+    return acc
+  }, 0);
 }
 
 // Bonus: Write a function that calculates the greatest product of four
@@ -132,8 +160,34 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  // TODO:
+  let greatest = 0;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length - 3; j++) {
+      const product =
+        matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+      if (product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+
+  // Check vertically
+  for (let i = 0; i < matrix.length - 3; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      const product =
+        matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+      if (product > greatest) {
+        greatest = product;
+      }
+    }
+  }
+  return greatest;
 }
+
+//check array for each array in matrix for
+
+
+
 
 
 module.exports = {
@@ -145,5 +199,5 @@ module.exports = {
   doesWordExist,
   howManyTimes,
   sum,
-  greatestProduct 
+  greatestProduct
 }
