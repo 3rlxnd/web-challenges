@@ -37,14 +37,16 @@ const initialEntries = [
 ];
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
+  const [entries, setEntries] = useState(JSON.parse(localStorage.getItem('entries')) || initialEntries);
   const [filter, setFilter] = useState("all"); // "all" or "favorites"
 
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
-    setEntries([{ id: uid(), date, ...newEntry }, ...entries]);
+    const newEntries = [{ id: uid(), date, ...newEntry }, ...entries]
+    setEntries(newEntries)
+    localStorage.setItem('entries', [JSON.stringify(newEntries)])
   }
 
   function handleToggleFavorite(id) {
